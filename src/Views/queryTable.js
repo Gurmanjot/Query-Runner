@@ -103,7 +103,7 @@ const QueryTable = ({ queryLoading }) => {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const [searchTableValue, setSearchTableValue] = React.useState(null);
+  const [searchTableValue, setSearchTableValue] = React.useState("");
   const [tableData, setTableData] = React.useState(queryResponse);
 
   const handleChangePage = (event, newPage) => {

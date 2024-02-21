@@ -7,7 +7,7 @@ import { copyToClipboard } from "../Utils";
 
 const SavedQueries = () => {
   const { savedQueries, setSavedQueries } = useContext(AppContext);
-  const [searchSavedQueries, setSearchSavedQueries] = React.useState(null);
+  const [searchSavedQueries, setSearchSavedQueries] = React.useState("");
 
   useEffect(() => {
     const queriesFromLocalStorage = JSON.parse(localStorage.getItem("queries"));
@@ -47,7 +47,7 @@ const SavedQueries = () => {
                 height: "30px",
               }}
             />
-            {savedQueries
+            {(savedQueries || [])
               ?.filter((query) =>
                 searchSavedQueries
                   ? query

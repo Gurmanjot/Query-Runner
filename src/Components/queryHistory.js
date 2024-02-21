@@ -6,8 +6,7 @@ import { copyToClipboard } from "../Utils";
 
 const QueryHistory = () => {
   const { previousQueries } = useContext(AppContext);
-  const [searchPreviousQueries, setSearchPreviousQueries] =
-    React.useState(null);
+  const [searchPreviousQueries, setSearchPreviousQueries] = React.useState("");
 
   return (
     <Box width={"280px"}>
