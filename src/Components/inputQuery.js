@@ -9,6 +9,7 @@ const InputQuery = () => {
     sqlQuery,
     setSqlQuery,
     setQueryResponse,
+    queryLoading,
     setQueryLoading,
     setPreviousQueries,
     setSavedQueries,
@@ -88,7 +89,7 @@ const InputQuery = () => {
         justifyContent={"flex-start"}
         marginTop={"12px"}
       >
-        <Button onClick={runQuery} variant="contained">
+        <Button onClick={runQuery} variant="contained" disabled={queryLoading}>
           Run
         </Button>
         <Button onClick={saveQuery} color="success" variant="contained">

@@ -3,6 +3,7 @@ import {
   IconButton,
   Input,
   Paper,
+  Skeleton,
   Table,
   TableBody,
   TableCell,
@@ -63,13 +64,18 @@ function TablePaginationActions(props) {
   };
 
   return (
-    <Box sx={{ flexShrink: 0, ml: 2.5 }}>
+    <Box
+      display={"flex"}
+      flexDirection={"row"}
+      alignItems={"center"}
+      sx={{ ml: 2.5 }}
+    >
       <IconButton
         onClick={handleFirstPageButtonClick}
         disabled={page === 0}
         aria-label="first page"
       >
-        <Typography variant="body1">{"1"}</Typography>
+        <Typography variant="body1">{"0"}</Typography>
       </IconButton>
       <IconButton
         onClick={handleBackButtonClick}
@@ -78,6 +84,7 @@ function TablePaginationActions(props) {
       >
         <ArrowLeft />
       </IconButton>
+      <Typography variant="body1">{page}</Typography>
       <IconButton
         onClick={handleNextButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
@@ -98,8 +105,8 @@ function TablePaginationActions(props) {
   );
 }
 
-const QueryTable = ({ queryLoading }) => {
-  const { queryResponse } = useContext(AppContext);
+const QueryTable = () => {
+  const { queryResponse, queryLoading } = useContext(AppContext);
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -139,8 +146,21 @@ const QueryTable = ({ queryLoading }) => {
 
   if (queryLoading) {
     return (
-      <Box mt={"60px"}>
-        <Typography variant="h4">Loading...</Typography>
+      <Box mt={"100px"} marginX={"20px"}>
+        <Skeleton variant="rectangular" width={"100%"} height={60} />
+        <Skeleton
+          variant="rectangular"
+          width={"100%"}
+          height={20}
+          sx={{ marginY: "20px" }}
+        />
+        <Skeleton variant="rectangular" width={"100%"} height={20} />
+        <Skeleton
+          variant="rectangular"
+          width={"100%"}
+          height={20}
+          sx={{ marginY: "20px" }}
+        />
       </Box>
     );
   }

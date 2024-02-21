@@ -41,7 +41,7 @@ const App = () => {
           <InputQuery />
           <HelperCards />
         </Box>
-        <QueryTable queryLoading={queryLoading} />
+        <QueryTable />
       </AppContext.Provider>
     </Box>
   );
