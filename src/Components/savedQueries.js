@@ -48,9 +48,7 @@ const SavedQueries = () => {
           />
         ) : (
           <Box mt={"40px"}>
-            <Typography variant={"h6"} color={"coral"}>
-              No queries to show
-            </Typography>
+            <Typography color={"GrayText"}>No queries to show...</Typography>
           </Box>
         )}
         {savedQueries

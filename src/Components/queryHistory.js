@@ -17,7 +17,7 @@ const QueryHistory = () => {
       <Box height={"160px"} overflow={"auto"}>
         {previousQueries.length === 0 ? (
           <Box mt={"40px"}>
-            <Typography variant={"body1"}>No queries to show</Typography>
+            <Typography color={"GrayText"}>No queries to show...</Typography>
           </Box>
         ) : (
           <>
