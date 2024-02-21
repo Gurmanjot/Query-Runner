@@ -10,6 +10,7 @@ Demo link - https://drive.google.com/file/d/1Qz5aMIgfjGuJx2letLydVsE60bJ6YT0i/vi
 
 * **Framework:** React (https://reactjs.org/)
 * **UI Library & Icons:** Material-UI (https://mui.com/)
+* **To download data:** react-csv (https://www.npmjs.com/package/react-csv)
 
 **Deployment:**
 
