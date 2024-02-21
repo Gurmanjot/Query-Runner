@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 function Header() {
   return (
     <AppBar position="static">
-      <Toolbar>
+      <Toolbar sx={{ justifyContent: "center" }}>
         <Typography variant="h6" component="div">
           Sql Runner
         </Typography>

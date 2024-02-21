@@ -94,7 +94,7 @@ const InputQuery = () => {
         <Button onClick={saveQuery} color="success" variant="contained">
           Save
         </Button>
-        <Button onClick={copyQuery} color="secondary" variant="contained">
+        <Button onClick={copyQuery} color="info" variant="contained">
           Copy
         </Button>
         <Button onClick={clearInput} color="error" variant="contained">

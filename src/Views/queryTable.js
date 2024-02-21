@@ -14,12 +14,13 @@ import {
   Typography,
   tableCellClasses,
 } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { mockDesertData } from "../Utils/constants";
 import styled from "@emotion/styled";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import { CSVLink } from "react-csv";
 import DownloadIcon from "@mui/icons-material/Download";
+import { AppContext } from "../App";
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
@@ -97,11 +98,13 @@ function TablePaginationActions(props) {
   );
 }
 
-const QueryTable = () => {
+const QueryTable = ({ queryLoading }) => {
+  const { queryResponse } = useContext(AppContext);
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [searchTableValue, setSearchTableValue] = React.useState(null);
-  const [tableData, setTableData] = React.useState(mockDesertData);
+  const [tableData, setTableData] = React.useState(queryResponse);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -134,6 +137,16 @@ const QueryTable = () => {
     }
   }, [searchTableValue]);
 
+  if (queryLoading) {
+    return (
+      <Box mt={"60px"}>
+        <Typography variant="h4">Loading...</Typography>
+      </Box>
+    );
+  }
+
+  if (!queryResponse) return;
+
   return (
     <Box mt={"80px"} mx={"20px"}>
       <Box
@@ -153,7 +166,6 @@ const QueryTable = () => {
           placeholder={"Search Table"}
           sx={{
             border: "1px solid black",
-            // borderRadius: "5px",
             margin: "5px",
             padding: "5px",
           }}

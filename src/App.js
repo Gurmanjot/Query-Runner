@@ -1,7 +1,8 @@
 import { createContext, useState } from "react";
 import "./App.css";
-import { Header, History, InputQuery, QueryTable } from "./Components";
-import { useMediaQuery } from "@mui/material";
+import { Header, InputQuery } from "./Components";
+import { Box, useMediaQuery } from "@mui/material";
+import { HelperCards, QueryTable } from "./Views";
 
 export const AppContext = createContext();
 
@@ -25,26 +26,24 @@ const App = () => {
     savedQueries,
     setSavedQueries,
   };
-  // search functionality and  download functionality
+
   return (
-    <div className="App">
+    <Box className="App">
       <Header />
       <AppContext.Provider value={contextValue}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: isMobile ? "column" : "row",
-            justifyContent: "space-between",
-            margin: "20px",
-          }}
+        <Box
+          display={"flex"}
+          flexDirection={isMobile ? "column" : "row"}
+          justifyContent={"space-between"}
+          margin={"20px"}
+          gap={"20px"}
         >
           <InputQuery />
-          <History />
-        </div>
-        {queryLoading ? <div>Loading ....</div> : null}
-        {!queryLoading && queryResponse !== null ? <QueryTable /> : null}
+          <HelperCards />
+        </Box>
+        <QueryTable queryLoading={queryLoading} />
       </AppContext.Provider>
-    </div>
+    </Box>
   );
 };
 
