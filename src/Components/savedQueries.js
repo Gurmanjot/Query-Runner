@@ -11,7 +11,11 @@ const SavedQueries = () => {
 
   useEffect(() => {
     const queriesFromLocalStorage = JSON.parse(localStorage.getItem("queries"));
-
+    console.log("queriesFromLocalStorage", queriesFromLocalStorage);
+    console.log(
+      "typeof queriesFromLocalStorage",
+      typeof queriesFromLocalStorage
+    );
     if (queriesFromLocalStorage) {
       setSavedQueries(queriesFromLocalStorage);
     }
@@ -47,6 +51,7 @@ const SavedQueries = () => {
                 height: "30px",
               }}
             />
+            {console.log("savedQueries", savedQueries)}
             {(savedQueries || [])
               ?.filter((query) =>
                 searchSavedQueries
