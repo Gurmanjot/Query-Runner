@@ -42,7 +42,7 @@ const InputQuery = () => {
     if (!sqlQuery) return;
     const queriesFromLocalStorage = JSON.parse(localStorage.getItem("queries"));
 
-    if (queriesFromLocalStorage.includes(sqlQuery)) {
+    if (queriesFromLocalStorage?.includes(sqlQuery)) {
       return;
     }
 
