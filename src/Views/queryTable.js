@@ -124,7 +124,7 @@ const QueryTable = () => {
 
   useEffect(() => {
     if (searchTableValue) {
-      setTableData(
+      setTableData((tableData) =>
         tableData.filter((row) => {
           for (let key in row) {
             if (
@@ -146,8 +146,15 @@ const QueryTable = () => {
 
   if (queryLoading) {
     return (
-      <Box mt={"100px"} marginX={"20px"}>
+      <Box mt={"8%"} marginX={"20px"}>
         <Skeleton variant="rectangular" width={"100%"} height={60} />
+        <Skeleton
+          variant="rectangular"
+          width={"100%"}
+          height={20}
+          sx={{ marginY: "20px" }}
+        />
+        <Skeleton variant="rectangular" width={"100%"} height={20} />
         <Skeleton
           variant="rectangular"
           width={"100%"}
