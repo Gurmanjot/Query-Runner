@@ -54,7 +54,7 @@ const InputQuery = () => {
       setSavedQueries(() => [...queriesFromLocalStorage, sqlQuery]);
     } else {
       localStorage.setItem("queries", JSON.stringify([sqlQuery]));
-      setSavedQueries(() => JSON.stringify([sqlQuery]));
+      setSavedQueries(() => [sqlQuery]);
     }
   };
 
